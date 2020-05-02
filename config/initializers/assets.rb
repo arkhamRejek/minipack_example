@@ -15,5 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *svg *js *.css)
 
 Rails.application.config.assets.paths += [
-  Rails.root.join("public", "client").to_s,
+  Rails.root.join("client", "dist").to_s,
 ]

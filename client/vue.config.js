@@ -1,10 +1,11 @@
 const path = require('path');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-    filenameHashing: false,
-
-  outputDir: path.resolve(__dirname, '../public/client'),
+  publicPath: isDev ? '':'dist/',
+  filenameHashing: false,
+  productionSourceMap: false,
   devServer: {
     writeToDisk: true,
     host: 'localhost',
@@ -18,13 +19,11 @@ module.exports = {
     },
   },
   configureWebpack: (config) => {
-    config.output.filename =  '[name].js';
-    config.output.chunkFilename = '[name].js';
-
     config.plugins = config.plugins.concat(
       new WebpackAssetsManifest({
         entrypoints: true,
         writeToDisk: true,
+        output: isDev ? 'manifest.json' : path.resolve(__dirname, '../public/assets/manifests/manifest.json')
       }),
     );
   },
@@ -40,8 +39,7 @@ module.exports = {
       .rule('images')
       .use('url-loader')
       .tap(options => {
-        console.log(options)
-        options.fallback.options.name =  '../client/[name].[hash:8].[ext]';
+        // options.fallback.options.name =  '../dist/[name].[hash:8].[ext]';
         return options;
       });
   },
