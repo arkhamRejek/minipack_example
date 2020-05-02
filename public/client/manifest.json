@@ -1,13 +1,13 @@
 {
   "../client/logo.png": "../client/logo.82b9c7a5.png",
-  "about.js": "about.051d76ee_v2.js",
-  "app.js": "app.051d76ee_v2.js",
-  "chunk-vendors.js": "chunk-vendors.051d76ee_v2.js",
+  "about.js": "about.js",
+  "app.js": "app.js",
+  "chunk-vendors.js": "chunk-vendors.js",
   "entrypoints": {
     "app": {
       "js": [
-        "chunk-vendors.051d76ee_v2.js",
-        "app.051d76ee_v2.js"
+        "chunk-vendors.js",
+        "app.js"
       ]
     }
   }

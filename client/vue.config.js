@@ -2,6 +2,8 @@ const path = require('path');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = {
+    filenameHashing: false,
+
   outputDir: path.resolve(__dirname, '../public/client'),
   devServer: {
     writeToDisk: true,
@@ -16,8 +18,8 @@ module.exports = {
     },
   },
   configureWebpack: (config) => {
-    config.output.filename =  '[name].[hash:8]_v2.js';
-    config.output.chunkFilename = '[name].[hash:8]_v2.js';
+    config.output.filename =  '[name].js';
+    config.output.chunkFilename = '[name].js';
 
     config.plugins = config.plugins.concat(
       new WebpackAssetsManifest({
