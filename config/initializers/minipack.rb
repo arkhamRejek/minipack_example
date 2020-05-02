@@ -7,7 +7,7 @@ Minipack.configuration do |c|
   c.manifest = if Rails.env.development?
       "http://localhost:8080/manifest.json"
     else
-      Rails.root.join("public", "assets", "manifest.json")
+      Rails.root.join("public", "client", "manifest.json")
     end
   c.base_path = Rails.root.join("client")
   c.build_command = "yarn build"

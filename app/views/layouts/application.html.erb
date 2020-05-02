@@ -7,10 +7,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_bundles_with_chunks_tag 'app', 'data-turbolinks-track': 'reload' %>
+    <%# this is needed because webpack dev server injects styles it's faster in dev mode %>
+    <% if Rails.env.production?%>
+      <%= stylesheet_bundles_with_chunks_tag 'app' %>
+    <%end%>
+
+
   </head>
 
   <body>
-    <%= yield %>
+    <div id='app'></div>
+    <%= javascript_bundles_with_chunks_tag 'app' %>
   </body>
 </html>
