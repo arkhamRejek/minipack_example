@@ -1,4 +1,4 @@
-# README
+# Vue minipack example README
 
 - [Add vue folder to asset pipeline for compilation](https://github.com/arkhamRejek/minipack_example/blob/master/config/initializers/assets.rb#L15-L19)
 
